@@ -309,3 +309,21 @@ time for a few hundred children being built is far smaller. And then when the
 parent atlas is built, it does not have to do ANY image processing. It just
 needs to collect the already-processed images from its children, then pack
 and save the atlas.
+
+Utilities:
+
+Two companion utilities are included in the repository:
+
+   python3 atlas_summary.py [--sanitize] <directory>
+
+      Scans a directory tree for compiled texture atlases and prints a
+      summary report of page counts, page dimensions, total megapixel area,
+      packing coverage percentage, and wasted space. Passing --sanitize
+      anonymizes atlas names in the output.
+
+   python3 atlas_compare.py [--sanitize] <directory1> <directory2>
+
+      Scans two directory trees and verifies that both contain functionally
+      identical sets of texture atlases (matching atlas names, asset names,
+      and packed image dimensions). Passing --sanitize anonymizes atlas
+      names in the output.
